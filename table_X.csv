@@ -1,0 +1,9 @@
+method,cape_macro_f1,unknown_recall,custody_accuracy,localization,recovery_recall,flags
+Complete CoC-Guard,96.21,93.38,96.82,94.14,91.73,
+Without temporal learning,94.63,90.27,94.31,89.62,87.84,
+Without graph learning,94.18,89.36,93.76,88.71,86.12,
+Without deterministic verification,96.21,93.38,90.43,84.29,83.54,cape_macro_f1:a;unknown_recall:a
+Without Reliability-Controlled Fusion,93.84,84.92,91.63,87.54,82.68,
+Without disagreement term,95.17,89.81,95.08,91.73,88.06,
+Without Open-World Screening,96.21,74.82,96.82,94.14,91.73,cape_macro_f1:b;custody_accuracy:b;localization:b;recovery_recall:b
+Without validity constraints,96.21,93.38,96.82,94.14,72.36,cape_macro_f1:b;unknown_recall:b;custody_accuracy:b;localization:b

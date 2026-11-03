@@ -1,0 +1,151 @@
+# CoC-Guard default configuration.
+# Every value below is either taken from the manuscript (table reference in the
+# comment) or is an implementation detail documented in docs/METHOD.md.
+
+seeds: [11, 23, 37, 53, 71]          # Section IV-E, Table A8
+deterministic: false                  # set true for bit-wise repeatable GPU runs (slower)
+device: auto                          # auto | cpu | cuda
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  results: results
+
+# ---------------------------------------------------------------------------
+# Model (Table A4, Table A2, Section III)
+# ---------------------------------------------------------------------------
+model:
+  hidden_dim: 128                     # Table A4
+  temporal_layers: 3                  # L_T, Table A4
+  temporal_heads: 4                   # Table A4
+  graph_layers: 3                     # L_G, Table A4
+  graph_heads: 4                      # Table A4
+  ffn_dim: 512
+  dropout: 0.20                       # Table A4
+  max_events: 256                     # Table A2
+  min_events: 8                       # Table A2
+  max_nodes: 512                      # Table A2
+  max_edges: 2048                     # Table A2
+  time_buckets: 16                    # buckets of the temporal-compatibility bias b^tau (Eq. 9)
+  categorical_embedding_dim: 16
+  eta_floor: 0.10                     # lower bound of a failed support factor in Eq. 12
+  alpha_rho: 0.60                     # minimum rule contribution alpha_rho, Table A7 (Eq. 7)
+  lambda_b: 0.50                      # behavioural completeness weight (Eq. 6)
+  lambda_c: 0.50                      # custody completeness weight (Eq. 6)
+  severity:                           # omega, violation severity (Eq. 6)
+    hash: 1.00
+    time: 0.60
+    auth: 0.80
+    transfer: 0.80
+    provenance: 0.50
+  eps: 1.0e-6                         # epsilon in Eqs. 6, 9, 10, 16, 20, 27
+  static_hidden: [512, 256]           # static encoder for BODMAS / EMBER
+
+fusion: rcf                           # rcf | concat | equal | attention | uncertainty | availability | integrity
+
+# ---------------------------------------------------------------------------
+# Optimisation (Table A6)
+# ---------------------------------------------------------------------------
+training:
+  lr: 3.0e-4
+  weight_decay: 1.0e-5
+  grad_clip: 1.0
+  warmup_epochs: 5
+  min_lr: 1.0e-6
+  max_epochs: 120
+  patience: 15
+  batch_size: 64
+  stage1_epochs: 10                   # branch initialisation with auxiliary objectives
+  num_workers: 0
+  loss_weights:                       # Eq. 29 / Table A6
+    malware: 1.00
+    custody: 1.00
+    localization: 0.50
+    agreement: 0.10
+    calibration: 0.05
+    regularization: 1.0e-5
+    auxiliary: 0.20                   # branch-level auxiliary heads (stage 1 objective, kept in stage 2)
+  agreement_min_reliability: 0.75     # L_agree only when both branches are available and reliable
+
+# ---------------------------------------------------------------------------
+# Calibration and Open-World Screening (Table A7, Eqs. 18-21)
+# ---------------------------------------------------------------------------
+calibration:
+  ece_bins: 15
+  max_iter: 200
+
+screening:
+  lambda_p: 0.40                      # Table A7
+  lambda_d: 0.35                      # Table A7
+  lambda_x: 0.25                      # Table A7
+  tau_u: 0.81                         # Table A7
+  tau_p: 0.90                         # Table A7 (replay admission confidence)
+  prototype_source: dev               # mu_c, Sigma_c, kappa_c are development-derived (Eq. 20)
+  kappa_quantile: 0.95
+  shrinkage: 0.10                     # Sigma_c = (1-s) LedoitWolf_c + s Sigma_pooled
+  selection: pseudo_unknown           # pseudo_unknown | fixed
+  pseudo_unknown_mode: retrain        # retrain | prototype_holdout
+  pseudo_unknown_rounds: 1
+  tau_grid: [0.30, 1.50, 0.01]        # start, stop, step (Table A7 value tau_u = 0.81 lies inside)
+  lambda_grid_step: 0.05
+
+# ---------------------------------------------------------------------------
+# Evidence-Controlled Replay Memory (Table A7, Eqs. 22-24)
+# ---------------------------------------------------------------------------
+replay:
+  capacity_per_class: 25              # B_c
+  gamma: 0.10                         # diversity coefficient
+  distance: cosine                    # cosine distance on L2-normalised vectors
+  tau_rho: 0.75                       # reliability threshold
+  adapt_epochs: 3
+  adapt_lr: 1.0e-4
+  require_label_agreement: true       # unverified pseudo-labels are never admitted
+
+# ---------------------------------------------------------------------------
+# Report-level counterfactual verification (Table A7, Eqs. 25-28)
+# ---------------------------------------------------------------------------
+counterfactual:
+  repetitions: 5                      # R
+  min_effect: 0.10
+  min_stability: 0.80
+  min_direction: 0.80
+  beta_m: 0.30                        # malware-change weight
+  budget: 5                           # candidates examined per investigation
+  mc_dropout: true                    # seeded stochastic realisations of the frozen model
+  timestamp_jitter_seconds: 1.0
+  shap_permutations: 10
+  max_investigations: 500             # test investigations used for Table VIII
+
+# ---------------------------------------------------------------------------
+# Controlled custody histories (Table A3)
+# ---------------------------------------------------------------------------
+custody:
+  n_base_histories: 10000             # 10,000 intact + 10,000 compromised
+  min_events: 8
+  max_events: 40
+  mean_events: 20.4
+  violation_counts:
+    hash_mismatch: 1500
+    timestamp_perturbation: 1500
+    unauthorized_actor: 1250
+    transfer_omission: 1250
+    predecessor_corruption: 1250
+    provenance_removal: 1250
+    multiple: 2000                    # 2-4 simultaneous violations
+  multiple_min: 2
+  multiple_max: 4
+  timestamp_shift_minutes: [5, 2880]  # +-5 min to +-48 h
+  partition: [0.70, 0.10, 0.20]
+  generator_seed: 11
+  benign_irregularity_rate: 0.025     # rule-triggering but intact histories (false-positive pressure)
+  subtle_fraction: 0.15               # violations that frozen rules cannot see without context
+
+# ---------------------------------------------------------------------------
+# Evaluation and statistics (Section IV-E)
+# ---------------------------------------------------------------------------
+evaluation:
+  bootstrap_replicates: 10000
+  confidence_level: 0.95
+  latency_warmup: 100
+  latency_runs: 1000
+  latency_sizes: [10, 25, 50, 100, 200]

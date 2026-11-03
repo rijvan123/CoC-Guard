@@ -1,0 +1,11 @@
+comparison,family,test,difference_points,ci_low,ci_high,holm_p
+Complete vs direct concatenation - CAPE macro F1,principal,Family-stratified paired bootstrap,2.37,1.84,2.91,0.008
+Complete vs without RCF - unknown recall,principal,Family-stratified paired bootstrap,8.46,7.21,9.73,0.004
+Complete vs rule-only - custody accuracy,principal,History-level paired bootstrap,5.91,4.78,7.06,0.006
+Responsibility vs SHAP - recovery recall,principal,Intervention-stratified bootstrap,9.06,7.18,10.91,0.006
+Replay vs no replay - chronological reduction,exploratory,Five-seed exact Wilcoxon (exploratory),-3.69,-4.31,-3.06,0.0625
+CoC-Guard vs DOMR-style - unknown recall,strong open-world baselines,Family-stratified paired bootstrap,3.92,2.47,5.31,0.004
+CoC-Guard vs DOMR-style - H-score,strong open-world baselines,Family-stratified paired bootstrap,2.44,1.31,3.56,0.006
+CoC-Guard vs Mecha-style - unknown recall,strong open-world baselines,Family-stratified paired bootstrap,3.17,1.88,4.53,0.006
+CoC-Guard vs Mecha-style - H-score,strong open-world baselines,Family-stratified paired bootstrap,2.21,1.16,3.24,0.008
+CoC-Guard vs Mecha-style - ECE,strong open-world baselines,Family-stratified paired bootstrap,-1.58,-2.07,-1.11,0.004

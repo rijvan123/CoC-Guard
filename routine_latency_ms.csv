@@ -1,0 +1,6 @@
+key,value
+LightGBM,3.8
+MLP,5.4
+Direct concatenation without RCF,18.7
+CoC-Guard,23.6
+trainable_parameters_millions,12.8

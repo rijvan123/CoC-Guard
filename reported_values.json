@@ -1,0 +1,965 @@
+{
+ "_note": "Values REPORTED IN THE MANUSCRIPT (Tables IV-XII and Figure 7). They are included only to compare re-runs with the published numbers and to redraw the published figures. They are not outputs of this code. Entries flagged 'approximate' were read from Figure 7 because the manuscript does not tabulate them.",
+ "table_IV": [
+  {
+   "track": "bodmas",
+   "method": "BODMAS-MLP",
+   "accuracy": 94.38,
+   "macro_precision": 93.84,
+   "macro_recall": 93.17,
+   "macro_f1": 93.5,
+   "auroc": 97.28
+  },
+  {
+   "track": "bodmas",
+   "method": "BODMAS-LightGBM",
+   "accuracy": 96.11,
+   "macro_precision": 95.62,
+   "macro_recall": 95.08,
+   "macro_f1": 95.35,
+   "auroc": 98.71
+  },
+  {
+   "track": "bodmas",
+   "method": "BODMAS-CoC-Guard (static configuration)",
+   "accuracy": 97.43,
+   "macro_precision": 97.18,
+   "macro_recall": 96.94,
+   "macro_f1": 97.06,
+   "auroc": 99.13
+  },
+  {
+   "track": "cape",
+   "method": "CAPE-BiLSTM",
+   "accuracy": 93.21,
+   "macro_precision": 92.88,
+   "macro_recall": 92.31,
+   "macro_f1": 92.59,
+   "auroc": 97.16
+  },
+  {
+   "track": "cape",
+   "method": "CAPE-GAT",
+   "accuracy": 94.17,
+   "macro_precision": 93.82,
+   "macro_recall": 93.46,
+   "macro_f1": 93.64,
+   "auroc": 97.94
+  },
+  {
+   "track": "cape",
+   "method": "CAPE-Direct concatenation without RCF",
+   "accuracy": 94.42,
+   "macro_precision": 94.11,
+   "macro_recall": 93.58,
+   "macro_f1": 93.84,
+   "auroc": 98.11
+  },
+  {
+   "track": "cape",
+   "method": "CAPE-Complete CoC-Guard",
+   "accuracy": 96.53,
+   "macro_precision": 96.38,
+   "macro_recall": 96.05,
+   "macro_f1": 96.21,
+   "auroc": 99.02
+  },
+  {
+   "track": "ember",
+   "method": "EMBER-MLP",
+   "accuracy": 96.74,
+   "macro_precision": 96.71,
+   "macro_recall": 96.68,
+   "macro_f1": 96.69,
+   "auroc": 99.43
+  },
+  {
+   "track": "ember",
+   "method": "EMBER-LightGBM",
+   "accuracy": 97.52,
+   "macro_precision": 97.48,
+   "macro_recall": 97.44,
+   "macro_f1": 97.46,
+   "auroc": 99.71
+  },
+  {
+   "track": "ember",
+   "method": "EMBER-CoC-Guard (static configuration)",
+   "accuracy": 97.94,
+   "macro_precision": 97.92,
+   "macro_recall": 97.9,
+   "macro_f1": 97.91,
+   "auroc": 99.78
+  }
+ ],
+ "table_V_a": [
+  {
+   "method": "Confidence-rejection MLP",
+   "known_macro_f1": 94.82,
+   "known_macro_f1_sd": 0.63,
+   "unknown_precision": 82.63,
+   "unknown_precision_sd": 1.18,
+   "unknown_recall": 78.41,
+   "unknown_recall_sd": 1.42,
+   "h_score": 85.93,
+   "h_score_sd": 0.91,
+   "ece": 6.71,
+   "ece_sd": 0.48,
+   "brier": 0.087,
+   "brier_sd": 0.006,
+   "condition": "ordinary"
+  },
+  {
+   "method": "OpenMax",
+   "known_macro_f1": 95.06,
+   "known_macro_f1_sd": 0.57,
+   "unknown_precision": 87.29,
+   "unknown_precision_sd": 1.04,
+   "unknown_recall": 85.76,
+   "unknown_recall_sd": 1.21,
+   "h_score": 90.14,
+   "h_score_sd": 0.82,
+   "ece": 4.93,
+   "ece_sd": 0.41,
+   "brier": 0.068,
+   "brier_sd": 0.005,
+   "condition": "ordinary"
+  },
+  {
+   "method": "Direct concatenation without RCF",
+   "known_macro_f1": 95.81,
+   "known_macro_f1_sd": 0.49,
+   "unknown_precision": 86.42,
+   "unknown_precision_sd": 0.96,
+   "unknown_recall": 84.92,
+   "unknown_recall_sd": 1.13,
+   "h_score": 90.04,
+   "h_score_sd": 0.76,
+   "ece": 5.82,
+   "ece_sd": 0.44,
+   "brier": 0.078,
+   "brier_sd": 0.006,
+   "condition": "ordinary"
+  },
+  {
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 96.11,
+   "known_macro_f1_sd": 0.45,
+   "unknown_precision": 90.72,
+   "unknown_precision_sd": 0.87,
+   "unknown_recall": 89.46,
+   "unknown_recall_sd": 0.98,
+   "h_score": 92.66,
+   "h_score_sd": 0.69,
+   "ece": 3.86,
+   "ece_sd": 0.35,
+   "brier": 0.056,
+   "brier_sd": 0.004,
+   "condition": "ordinary"
+  },
+  {
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 95.74,
+   "known_macro_f1_sd": 0.51,
+   "unknown_precision": 91.38,
+   "unknown_precision_sd": 0.81,
+   "unknown_recall": 90.21,
+   "unknown_recall_sd": 0.92,
+   "h_score": 92.89,
+   "h_score_sd": 0.66,
+   "ece": 3.52,
+   "ece_sd": 0.32,
+   "brier": 0.052,
+   "brier_sd": 0.004,
+   "condition": "ordinary"
+  },
+  {
+   "method": "CoC-Guard without disagreement term",
+   "known_macro_f1": 96.22,
+   "known_macro_f1_sd": 0.43,
+   "unknown_precision": 91.05,
+   "unknown_precision_sd": 0.79,
+   "unknown_recall": 89.81,
+   "unknown_recall_sd": 0.95,
+   "h_score": 92.91,
+   "h_score_sd": 0.65,
+   "ece": 2.89,
+   "ece_sd": 0.29,
+   "brier": 0.047,
+   "brier_sd": 0.003,
+   "condition": "ordinary"
+  },
+  {
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 96.87,
+   "known_macro_f1_sd": 0.38,
+   "unknown_precision": 94.16,
+   "unknown_precision_sd": 0.68,
+   "unknown_recall": 93.38,
+   "unknown_recall_sd": 0.79,
+   "h_score": 95.1,
+   "h_score_sd": 0.54,
+   "ece": 1.94,
+   "ece_sd": 0.22,
+   "brier": 0.034,
+   "brier_sd": 0.003,
+   "condition": "ordinary"
+  }
+ ],
+ "table_V_b": [
+  {
+   "condition": "ordinary",
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 96.11,
+   "unknown_recall": 89.46,
+   "h_score": 92.66,
+   "ece": 3.86
+  },
+  {
+   "condition": "ordinary",
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 95.74,
+   "unknown_recall": 90.21,
+   "h_score": 92.89,
+   "ece": 3.52
+  },
+  {
+   "condition": "ordinary",
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 96.87,
+   "unknown_recall": 93.38,
+   "h_score": 95.1,
+   "ece": 1.94
+  },
+  {
+   "condition": "rare",
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 94.87,
+   "unknown_recall": 86.72,
+   "h_score": 90.61,
+   "ece": 4.43
+  },
+  {
+   "condition": "rare",
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 94.39,
+   "unknown_recall": 87.65,
+   "h_score": 90.89,
+   "ece": 4.08
+  },
+  {
+   "condition": "rare",
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 95.92,
+   "unknown_recall": 91.46,
+   "h_score": 93.63,
+   "ece": 2.41
+  },
+  {
+   "condition": "future",
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 93.78,
+   "unknown_recall": 84.91,
+   "h_score": 89.12,
+   "ece": 5.06
+  },
+  {
+   "condition": "future",
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 93.51,
+   "unknown_recall": 86.28,
+   "h_score": 89.75,
+   "ece": 4.72
+  },
+  {
+   "condition": "future",
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 94.83,
+   "unknown_recall": 89.74,
+   "h_score": 92.21,
+   "ece": 3.06
+  },
+  {
+   "condition": "behaviour_loss",
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 91.86,
+   "unknown_recall": 81.74,
+   "h_score": 86.5,
+   "ece": 6.13
+  },
+  {
+   "condition": "behaviour_loss",
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 92.17,
+   "unknown_recall": 83.29,
+   "h_score": 87.45,
+   "ece": 5.67
+  },
+  {
+   "condition": "behaviour_loss",
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 93.96,
+   "unknown_recall": 87.81,
+   "h_score": 90.79,
+   "ece": 3.72
+  },
+  {
+   "condition": "disagreement",
+   "method": "DOMR-style Episodic OVR",
+   "known_macro_f1": 90.73,
+   "unknown_recall": 78.62,
+   "h_score": 84.24,
+   "ece": 6.84
+  },
+  {
+   "condition": "disagreement",
+   "method": "Mecha-style Metric ANN",
+   "known_macro_f1": 91.28,
+   "unknown_recall": 80.16,
+   "h_score": 85.36,
+   "ece": 6.31
+  },
+  {
+   "condition": "disagreement",
+   "method": "Complete CoC-Guard",
+   "known_macro_f1": 92.84,
+   "unknown_recall": 85.63,
+   "h_score": 89.1,
+   "ece": 4.31
+  }
+ ],
+ "figure_7": [
+  {
+   "method": "Complete CoC-Guard",
+   "interval_1": 96.02,
+   "interval_2": 95.61,
+   "interval_3": 95.03,
+   "interval_4": 94.6,
+   "total_reduction": 1.42,
+   "approximate": false
+  },
+  {
+   "method": "Without Replay Memory",
+   "interval_1": 95.73,
+   "interval_2": 94.18,
+   "interval_3": 92.36,
+   "interval_4": 90.62,
+   "total_reduction": 5.11,
+   "approximate": true
+  },
+  {
+   "method": "LightGBM",
+   "interval_1": 95.21,
+   "interval_2": 93.47,
+   "interval_3": 91.29,
+   "interval_4": 89.34,
+   "total_reduction": 5.87,
+   "approximate": true
+  },
+  {
+   "method": "MLP",
+   "interval_1": 93.84,
+   "interval_2": 91.76,
+   "interval_3": 89.03,
+   "interval_4": 86.91,
+   "total_reduction": 6.93,
+   "approximate": true
+  }
+ ],
+ "table_VI": [
+  {
+   "condition": "controlled",
+   "method": "Rule-only detector",
+   "integrity_accuracy": 90.91,
+   "violation_recall": 88.27,
+   "localization_accuracy": 81.38,
+   "intact_fpr": 2.31
+  },
+  {
+   "condition": "controlled",
+   "method": "BiLSTM",
+   "integrity_accuracy": 92.84,
+   "violation_recall": 91.16,
+   "localization_accuracy": 86.25,
+   "intact_fpr": 3.72
+  },
+  {
+   "condition": "controlled",
+   "method": "GCN",
+   "integrity_accuracy": 93.47,
+   "violation_recall": 92.08,
+   "localization_accuracy": 88.69,
+   "intact_fpr": 3.28
+  },
+  {
+   "condition": "controlled",
+   "method": "Direct concatenation without RCF",
+   "integrity_accuracy": 91.63,
+   "violation_recall": 93.02,
+   "localization_accuracy": 87.54,
+   "intact_fpr": 2.76
+  },
+  {
+   "condition": "controlled",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 96.82,
+   "violation_recall": 95.73,
+   "localization_accuracy": 94.14,
+   "intact_fpr": 1.82
+  },
+  {
+   "condition": "timestamp_noise",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 96.14,
+   "violation_recall": 95.08,
+   "localization_accuracy": 93.61,
+   "intact_fpr": 2.47
+  },
+  {
+   "condition": "missing_attributes",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 94.78,
+   "violation_recall": 93.17,
+   "localization_accuracy": 90.54,
+   "intact_fpr": 2.69
+  },
+  {
+   "condition": "custodian_label_noise",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 94.31,
+   "violation_recall": 92.74,
+   "localization_accuracy": 89.83,
+   "intact_fpr": 2.81
+  },
+  {
+   "condition": "predecessor_noise",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 95.07,
+   "violation_recall": 94.26,
+   "localization_accuracy": 92.18,
+   "intact_fpr": 2.55
+  },
+  {
+   "condition": "multiple_violations",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 93.64,
+   "violation_recall": 92.19,
+   "localization_accuracy": 89.06,
+   "intact_fpr": 2.38
+  },
+  {
+   "condition": "combined",
+   "method": "CoC-Guard",
+   "integrity_accuracy": 92.61,
+   "violation_recall": 90.83,
+   "localization_accuracy": 87.39,
+   "intact_fpr": 2.96
+  }
+ ],
+ "table_VII": [
+  {
+   "held_out": "hash_mismatch",
+   "detection_recall": 94.86,
+   "detection_recall_sd": 0.71,
+   "integrity_accuracy": 95.41,
+   "integrity_accuracy_sd": 0.58,
+   "localization_accuracy": 93.72,
+   "localization_accuracy_sd": 0.84,
+   "intact_fpr": 1.94,
+   "intact_fpr_sd": 0.23,
+   "auroc": 98.17,
+   "auroc_sd": 0.31,
+   "auprc": 97.62,
+   "auprc_sd": 0.38
+  },
+  {
+   "held_out": "timestamp_perturbation",
+   "detection_recall": 92.74,
+   "detection_recall_sd": 0.83,
+   "integrity_accuracy": 94.18,
+   "integrity_accuracy_sd": 0.66,
+   "localization_accuracy": 90.63,
+   "localization_accuracy_sd": 0.97,
+   "intact_fpr": 2.21,
+   "intact_fpr_sd": 0.27,
+   "auroc": 97.34,
+   "auroc_sd": 0.39,
+   "auprc": 96.71,
+   "auprc_sd": 0.46
+  },
+  {
+   "held_out": "unauthorized_actor",
+   "detection_recall": 89.63,
+   "detection_recall_sd": 1.08,
+   "integrity_accuracy": 91.82,
+   "integrity_accuracy_sd": 0.91,
+   "localization_accuracy": 87.16,
+   "localization_accuracy_sd": 1.26,
+   "intact_fpr": 2.58,
+   "intact_fpr_sd": 0.31,
+   "auroc": 95.86,
+   "auroc_sd": 0.52,
+   "auprc": 94.73,
+   "auprc_sd": 0.64
+  },
+  {
+   "held_out": "transfer_omission",
+   "detection_recall": 87.91,
+   "detection_recall_sd": 1.17,
+   "integrity_accuracy": 90.47,
+   "integrity_accuracy_sd": 0.96,
+   "localization_accuracy": 84.92,
+   "localization_accuracy_sd": 1.39,
+   "intact_fpr": 2.73,
+   "intact_fpr_sd": 0.34,
+   "auroc": 94.78,
+   "auroc_sd": 0.61,
+   "auprc": 93.42,
+   "auprc_sd": 0.72
+  },
+  {
+   "held_out": "predecessor_corruption",
+   "detection_recall": 90.84,
+   "detection_recall_sd": 0.96,
+   "integrity_accuracy": 92.76,
+   "integrity_accuracy_sd": 0.79,
+   "localization_accuracy": 88.41,
+   "localization_accuracy_sd": 1.14,
+   "intact_fpr": 2.36,
+   "intact_fpr_sd": 0.29,
+   "auroc": 96.21,
+   "auroc_sd": 0.47,
+   "auprc": 95.18,
+   "auprc_sd": 0.55
+  },
+  {
+   "held_out": "provenance_removal",
+   "detection_recall": 86.72,
+   "detection_recall_sd": 1.29,
+   "integrity_accuracy": 89.35,
+   "integrity_accuracy_sd": 1.04,
+   "localization_accuracy": 82.68,
+   "localization_accuracy_sd": 1.53,
+   "intact_fpr": 2.89,
+   "intact_fpr_sd": 0.37,
+   "auroc": 93.91,
+   "auroc_sd": 0.68,
+   "auprc": 92.36,
+   "auprc_sd": 0.81
+  },
+  {
+   "held_out": "Macro mean",
+   "detection_recall": 90.45,
+   "detection_recall_sd": 1.01,
+   "integrity_accuracy": 92.33,
+   "integrity_accuracy_sd": 0.82,
+   "localization_accuracy": 87.92,
+   "localization_accuracy_sd": 1.19,
+   "intact_fpr": 2.45,
+   "intact_fpr_sd": 0.3,
+   "auroc": 96.05,
+   "auroc_sd": 0.5,
+   "auprc": 95.0,
+   "auprc_sd": 0.59
+  }
+ ],
+ "table_VIII": [
+  {
+   "condition": "standard",
+   "method": "Random",
+   "recovery_recall": 63.48,
+   "validity": 74.26,
+   "stability": 69.17,
+   "unverifiable": 25.74,
+   "mean_evaluations": 5.2
+  },
+  {
+   "condition": "standard",
+   "method": "Attention-ranked",
+   "recovery_recall": 78.92,
+   "validity": 87.31,
+   "stability": 82.46,
+   "unverifiable": 12.69,
+   "mean_evaluations": 3.6
+  },
+  {
+   "condition": "standard",
+   "method": "SHAP-ranked",
+   "recovery_recall": 82.67,
+   "validity": 89.84,
+   "stability": 85.29,
+   "unverifiable": 10.16,
+   "mean_evaluations": 3.3
+  },
+  {
+   "condition": "standard",
+   "method": "Responsibility-guided",
+   "recovery_recall": 91.73,
+   "validity": 96.08,
+   "stability": 92.64,
+   "unverifiable": 3.92,
+   "mean_evaluations": 2.7
+  },
+  {
+   "condition": "incomplete_trace",
+   "method": "Responsibility-guided",
+   "recovery_recall": 87.41,
+   "validity": 92.18,
+   "stability": 88.76,
+   "unverifiable": 7.82,
+   "mean_evaluations": 3.0
+  },
+  {
+   "condition": "delayed_activation",
+   "method": "Responsibility-guided",
+   "recovery_recall": 84.62,
+   "validity": 89.74,
+   "stability": 85.13,
+   "unverifiable": 10.26,
+   "mean_evaluations": 3.4
+  },
+  {
+   "condition": "nondeterministic_realization",
+   "method": "Responsibility-guided",
+   "recovery_recall": 80.38,
+   "validity": 86.21,
+   "stability": 81.47,
+   "unverifiable": 13.79,
+   "mean_evaluations": 4.0
+  },
+  {
+   "condition": "missing_dependency",
+   "method": "Responsibility-guided",
+   "recovery_recall": 77.94,
+   "validity": 82.65,
+   "stability": 79.06,
+   "unverifiable": 17.35,
+   "mean_evaluations": 4.4
+  },
+  {
+   "condition": "alternative_execution_path",
+   "method": "Responsibility-guided",
+   "recovery_recall": 74.83,
+   "validity": 80.17,
+   "stability": 76.42,
+   "unverifiable": 19.83,
+   "mean_evaluations": 4.7
+  }
+ ],
+ "table_IX": [
+  {
+   "method": "Direct concatenation without RCF",
+   "cape_macro_f1": 93.84,
+   "unknown_recall": 84.92,
+   "custody_accuracy": 91.63,
+   "localization": 87.54,
+   "cape_ece": 5.82
+  },
+  {
+   "method": "Equal weighting",
+   "cape_macro_f1": 94.11,
+   "unknown_recall": 85.47,
+   "custody_accuracy": 92.08,
+   "localization": 88.13,
+   "cape_ece": 5.31
+  },
+  {
+   "method": "Conventional attention",
+   "cape_macro_f1": 94.76,
+   "unknown_recall": 87.36,
+   "custody_accuracy": 92.94,
+   "localization": 89.4,
+   "cape_ece": 4.48
+  },
+  {
+   "method": "Uncertainty-only gating",
+   "cape_macro_f1": 95.12,
+   "unknown_recall": 89.18,
+   "custody_accuracy": 93.37,
+   "localization": 90.11,
+   "cape_ece": 3.61
+  },
+  {
+   "method": "Availability-only gating",
+   "cape_macro_f1": 95.29,
+   "unknown_recall": 89.74,
+   "custody_accuracy": 93.85,
+   "localization": 90.68,
+   "cape_ece": 3.42
+  },
+  {
+   "method": "Integrity-only gating",
+   "cape_macro_f1": 95.46,
+   "unknown_recall": 90.21,
+   "custody_accuracy": 95.14,
+   "localization": 92.27,
+   "cape_ece": 3.05
+  },
+  {
+   "method": "Complete Reliability-Controlled Fusion",
+   "cape_macro_f1": 96.21,
+   "unknown_recall": 93.38,
+   "custody_accuracy": 96.82,
+   "localization": 94.14,
+   "cape_ece": 1.94
+  }
+ ],
+ "table_X": [
+  {
+   "method": "Complete CoC-Guard",
+   "cape_macro_f1": 96.21,
+   "unknown_recall": 93.38,
+   "custody_accuracy": 96.82,
+   "localization": 94.14,
+   "recovery_recall": 91.73,
+   "flags": ""
+  },
+  {
+   "method": "Without temporal learning",
+   "cape_macro_f1": 94.63,
+   "unknown_recall": 90.27,
+   "custody_accuracy": 94.31,
+   "localization": 89.62,
+   "recovery_recall": 87.84,
+   "flags": ""
+  },
+  {
+   "method": "Without graph learning",
+   "cape_macro_f1": 94.18,
+   "unknown_recall": 89.36,
+   "custody_accuracy": 93.76,
+   "localization": 88.71,
+   "recovery_recall": 86.12,
+   "flags": ""
+  },
+  {
+   "method": "Without deterministic verification",
+   "cape_macro_f1": 96.21,
+   "unknown_recall": 93.38,
+   "custody_accuracy": 90.43,
+   "localization": 84.29,
+   "recovery_recall": 83.54,
+   "flags": "cape_macro_f1:a;unknown_recall:a"
+  },
+  {
+   "method": "Without Reliability-Controlled Fusion",
+   "cape_macro_f1": 93.84,
+   "unknown_recall": 84.92,
+   "custody_accuracy": 91.63,
+   "localization": 87.54,
+   "recovery_recall": 82.68,
+   "flags": ""
+  },
+  {
+   "method": "Without disagreement term",
+   "cape_macro_f1": 95.17,
+   "unknown_recall": 89.81,
+   "custody_accuracy": 95.08,
+   "localization": 91.73,
+   "recovery_recall": 88.06,
+   "flags": ""
+  },
+  {
+   "method": "Without Open-World Screening",
+   "cape_macro_f1": 96.21,
+   "unknown_recall": 74.82,
+   "custody_accuracy": 96.82,
+   "localization": 94.14,
+   "recovery_recall": 91.73,
+   "flags": "cape_macro_f1:b;custody_accuracy:b;localization:b;recovery_recall:b"
+  },
+  {
+   "method": "Without validity constraints",
+   "cape_macro_f1": 96.21,
+   "unknown_recall": 93.38,
+   "custody_accuracy": 96.82,
+   "localization": 94.14,
+   "recovery_recall": 72.36,
+   "flags": "cape_macro_f1:b;unknown_recall:b;custody_accuracy:b;localization:b"
+  }
+ ],
+ "table_XI_a": [
+  {
+   "events": 10,
+   "nodes": 50,
+   "edges": 120,
+   "latency_ms": 14.8,
+   "throughput_per_s": 67.6,
+   "peak_gpu_memory_gb": 0.91
+  },
+  {
+   "events": 25,
+   "nodes": 125,
+   "edges": 320,
+   "latency_ms": 19.6,
+   "throughput_per_s": 51.0,
+   "peak_gpu_memory_gb": 1.13
+  },
+  {
+   "events": 50,
+   "nodes": 250,
+   "edges": 680,
+   "latency_ms": 27.9,
+   "throughput_per_s": 35.8,
+   "peak_gpu_memory_gb": 1.46
+  },
+  {
+   "events": 100,
+   "nodes": 500,
+   "edges": 1650,
+   "latency_ms": 46.7,
+   "throughput_per_s": 21.4,
+   "peak_gpu_memory_gb": 2.08
+  },
+  {
+   "events": 200,
+   "nodes": 1000,
+   "edges": 5000,
+   "latency_ms": 83.4,
+   "throughput_per_s": 12.0,
+   "peak_gpu_memory_gb": 3.41
+  }
+ ],
+ "table_XI_b": [
+  {
+   "measure": "Investigations routed to review (%)",
+   "value": 8.7
+  },
+  {
+   "measure": "False review among supported families (%)",
+   "value": 3.4
+  },
+  {
+   "measure": "Median ranked transactions displayed",
+   "value": 5
+  },
+  {
+   "measure": "Automated audit generation (s)",
+   "value": 0.31
+  },
+  {
+   "measure": "Intervention verification per case (s)",
+   "value": 288.0
+  },
+  {
+   "measure": "Candidates remaining unverifiable (%)",
+   "value": 3.92
+  }
+ ],
+ "routine_latency_ms": {
+  "LightGBM": 3.8,
+  "MLP": 5.4,
+  "Direct concatenation without RCF": 18.7,
+  "CoC-Guard": 23.6,
+  "trainable_parameters_millions": 12.8
+ },
+ "table_XII": [
+  {
+   "comparison": "Complete vs direct concatenation - CAPE macro F1",
+   "family": "principal",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 2.37,
+   "ci_low": 1.84,
+   "ci_high": 2.91,
+   "holm_p": 0.008
+  },
+  {
+   "comparison": "Complete vs without RCF - unknown recall",
+   "family": "principal",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 8.46,
+   "ci_low": 7.21,
+   "ci_high": 9.73,
+   "holm_p": 0.004
+  },
+  {
+   "comparison": "Complete vs rule-only - custody accuracy",
+   "family": "principal",
+   "test": "History-level paired bootstrap",
+   "difference_points": 5.91,
+   "ci_low": 4.78,
+   "ci_high": 7.06,
+   "holm_p": 0.006
+  },
+  {
+   "comparison": "Responsibility vs SHAP - recovery recall",
+   "family": "principal",
+   "test": "Intervention-stratified bootstrap",
+   "difference_points": 9.06,
+   "ci_low": 7.18,
+   "ci_high": 10.91,
+   "holm_p": 0.006
+  },
+  {
+   "comparison": "Replay vs no replay - chronological reduction",
+   "family": "exploratory",
+   "test": "Five-seed exact Wilcoxon (exploratory)",
+   "difference_points": -3.69,
+   "ci_low": -4.31,
+   "ci_high": -3.06,
+   "holm_p": 0.0625
+  },
+  {
+   "comparison": "CoC-Guard vs DOMR-style - unknown recall",
+   "family": "strong open-world baselines",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 3.92,
+   "ci_low": 2.47,
+   "ci_high": 5.31,
+   "holm_p": 0.004
+  },
+  {
+   "comparison": "CoC-Guard vs DOMR-style - H-score",
+   "family": "strong open-world baselines",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 2.44,
+   "ci_low": 1.31,
+   "ci_high": 3.56,
+   "holm_p": 0.006
+  },
+  {
+   "comparison": "CoC-Guard vs Mecha-style - unknown recall",
+   "family": "strong open-world baselines",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 3.17,
+   "ci_low": 1.88,
+   "ci_high": 4.53,
+   "holm_p": 0.006
+  },
+  {
+   "comparison": "CoC-Guard vs Mecha-style - H-score",
+   "family": "strong open-world baselines",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": 2.21,
+   "ci_low": 1.16,
+   "ci_high": 3.24,
+   "holm_p": 0.008
+  },
+  {
+   "comparison": "CoC-Guard vs Mecha-style - ECE",
+   "family": "strong open-world baselines",
+   "test": "Family-stratified paired bootstrap",
+   "difference_points": -1.58,
+   "ci_low": -2.07,
+   "ci_high": -1.11,
+   "holm_p": 0.004
+  }
+ ],
+ "configuration_table_A7": {
+  "T_m": 1.18,
+  "T_c": 1.11,
+  "tau_u": 0.81,
+  "tau_p": 0.9,
+  "tau_rho": 0.75,
+  "alpha_rho": 0.6,
+  "lambda_p": 0.4,
+  "lambda_d": 0.35,
+  "lambda_x": 0.25,
+  "B_c": 25,
+  "gamma": 0.1,
+  "R": 5,
+  "min_effect": 0.1,
+  "min_stability": 0.8,
+  "beta_m": 0.3
+ }
+}

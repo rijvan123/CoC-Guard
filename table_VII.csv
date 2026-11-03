@@ -1,0 +1,8 @@
+held_out,detection_recall,detection_recall_sd,integrity_accuracy,integrity_accuracy_sd,localization_accuracy,localization_accuracy_sd,intact_fpr,intact_fpr_sd,auroc,auroc_sd,auprc,auprc_sd
+hash_mismatch,94.86,0.71,95.41,0.58,93.72,0.84,1.94,0.23,98.17,0.31,97.62,0.38
+timestamp_perturbation,92.74,0.83,94.18,0.66,90.63,0.97,2.21,0.27,97.34,0.39,96.71,0.46
+unauthorized_actor,89.63,1.08,91.82,0.91,87.16,1.26,2.58,0.31,95.86,0.52,94.73,0.64
+transfer_omission,87.91,1.17,90.47,0.96,84.92,1.39,2.73,0.34,94.78,0.61,93.42,0.72
+predecessor_corruption,90.84,0.96,92.76,0.79,88.41,1.14,2.36,0.29,96.21,0.47,95.18,0.55
+provenance_removal,86.72,1.29,89.35,1.04,82.68,1.53,2.89,0.37,93.91,0.68,92.36,0.81
+Macro mean,90.45,1.01,92.33,0.82,87.92,1.19,2.45,0.3,96.05,0.5,95.0,0.59

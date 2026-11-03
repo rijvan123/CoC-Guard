@@ -1,0 +1,5 @@
+method,interval_1,interval_2,interval_3,interval_4,total_reduction,approximate
+Complete CoC-Guard,96.02,95.61,95.03,94.6,1.42,False
+Without Replay Memory,95.73,94.18,92.36,90.62,5.11,True
+LightGBM,95.21,93.47,91.29,89.34,5.87,True
+MLP,93.84,91.76,89.03,86.91,6.93,True

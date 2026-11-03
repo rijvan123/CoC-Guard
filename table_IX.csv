@@ -1,0 +1,8 @@
+method,cape_macro_f1,unknown_recall,custody_accuracy,localization,cape_ece
+Direct concatenation without RCF,93.84,84.92,91.63,87.54,5.82
+Equal weighting,94.11,85.47,92.08,88.13,5.31
+Conventional attention,94.76,87.36,92.94,89.4,4.48
+Uncertainty-only gating,95.12,89.18,93.37,90.11,3.61
+Availability-only gating,95.29,89.74,93.85,90.68,3.42
+Integrity-only gating,95.46,90.21,95.14,92.27,3.05
+Complete Reliability-Controlled Fusion,96.21,93.38,96.82,94.14,1.94

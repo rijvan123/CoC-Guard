@@ -1,0 +1,16 @@
+condition,method,known_macro_f1,unknown_recall,h_score,ece
+ordinary,DOMR-style Episodic OVR,96.11,89.46,92.66,3.86
+ordinary,Mecha-style Metric ANN,95.74,90.21,92.89,3.52
+ordinary,Complete CoC-Guard,96.87,93.38,95.1,1.94
+rare,DOMR-style Episodic OVR,94.87,86.72,90.61,4.43
+rare,Mecha-style Metric ANN,94.39,87.65,90.89,4.08
+rare,Complete CoC-Guard,95.92,91.46,93.63,2.41
+future,DOMR-style Episodic OVR,93.78,84.91,89.12,5.06
+future,Mecha-style Metric ANN,93.51,86.28,89.75,4.72
+future,Complete CoC-Guard,94.83,89.74,92.21,3.06
+behaviour_loss,DOMR-style Episodic OVR,91.86,81.74,86.5,6.13
+behaviour_loss,Mecha-style Metric ANN,92.17,83.29,87.45,5.67
+behaviour_loss,Complete CoC-Guard,93.96,87.81,90.79,3.72
+disagreement,DOMR-style Episodic OVR,90.73,78.62,84.24,6.84
+disagreement,Mecha-style Metric ANN,91.28,80.16,85.36,6.31
+disagreement,Complete CoC-Guard,92.84,85.63,89.1,4.31

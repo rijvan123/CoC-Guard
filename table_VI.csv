@@ -1,0 +1,12 @@
+condition,method,integrity_accuracy,violation_recall,localization_accuracy,intact_fpr
+controlled,Rule-only detector,90.91,88.27,81.38,2.31
+controlled,BiLSTM,92.84,91.16,86.25,3.72
+controlled,GCN,93.47,92.08,88.69,3.28
+controlled,Direct concatenation without RCF,91.63,93.02,87.54,2.76
+controlled,CoC-Guard,96.82,95.73,94.14,1.82
+timestamp_noise,CoC-Guard,96.14,95.08,93.61,2.47
+missing_attributes,CoC-Guard,94.78,93.17,90.54,2.69
+custodian_label_noise,CoC-Guard,94.31,92.74,89.83,2.81
+predecessor_noise,CoC-Guard,95.07,94.26,92.18,2.55
+multiple_violations,CoC-Guard,93.64,92.19,89.06,2.38
+combined,CoC-Guard,92.61,90.83,87.39,2.96

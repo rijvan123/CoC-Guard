@@ -1,0 +1,11 @@
+track,method,accuracy,macro_precision,macro_recall,macro_f1,auroc
+bodmas,BODMAS-MLP,94.38,93.84,93.17,93.5,97.28
+bodmas,BODMAS-LightGBM,96.11,95.62,95.08,95.35,98.71
+bodmas,BODMAS-CoC-Guard (static configuration),97.43,97.18,96.94,97.06,99.13
+cape,CAPE-BiLSTM,93.21,92.88,92.31,92.59,97.16
+cape,CAPE-GAT,94.17,93.82,93.46,93.64,97.94
+cape,CAPE-Direct concatenation without RCF,94.42,94.11,93.58,93.84,98.11
+cape,CAPE-Complete CoC-Guard,96.53,96.38,96.05,96.21,99.02
+ember,EMBER-MLP,96.74,96.71,96.68,96.69,99.43
+ember,EMBER-LightGBM,97.52,97.48,97.44,97.46,99.71
+ember,EMBER-CoC-Guard (static configuration),97.94,97.92,97.9,97.91,99.78

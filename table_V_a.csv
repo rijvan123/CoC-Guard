@@ -1,0 +1,8 @@
+method,known_macro_f1,known_macro_f1_sd,unknown_precision,unknown_precision_sd,unknown_recall,unknown_recall_sd,h_score,h_score_sd,ece,ece_sd,brier,brier_sd,condition
+Confidence-rejection MLP,94.82,0.63,82.63,1.18,78.41,1.42,85.93,0.91,6.71,0.48,0.087,0.006,ordinary
+OpenMax,95.06,0.57,87.29,1.04,85.76,1.21,90.14,0.82,4.93,0.41,0.068,0.005,ordinary
+Direct concatenation without RCF,95.81,0.49,86.42,0.96,84.92,1.13,90.04,0.76,5.82,0.44,0.078,0.006,ordinary
+DOMR-style Episodic OVR,96.11,0.45,90.72,0.87,89.46,0.98,92.66,0.69,3.86,0.35,0.056,0.004,ordinary
+Mecha-style Metric ANN,95.74,0.51,91.38,0.81,90.21,0.92,92.89,0.66,3.52,0.32,0.052,0.004,ordinary
+CoC-Guard without disagreement term,96.22,0.43,91.05,0.79,89.81,0.95,92.91,0.65,2.89,0.29,0.047,0.003,ordinary
+Complete CoC-Guard,96.87,0.38,94.16,0.68,93.38,0.79,95.1,0.54,1.94,0.22,0.034,0.003,ordinary
